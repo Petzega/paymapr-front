@@ -1,0 +1,36 @@
+.margined-div {
+    margin: 20px;
+    padding: 10px;
+}
+
+.btn-primary {
+    --bs-btn-bg: #1190cb;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #1290cb;
+    --bs-btn-hover-bg: #ffffff;
+    --bs-btn-hover-border-color: #ffffff;
+    --bs-btn-active-color: #ef5350;
+    --bs-btn-active-bg: #f4f6f9;
+    --bs-btn-active-border-color: #f4f6f9;
+}
+
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #ef5350;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #1290cb;
+    --bs-btn-hover-bg: #ffffff;
+    --bs-btn-hover-border-color: #ffffff;
+    --bs-btn-active-color: #ef5350;
+    --bs-btn-active-bg: #f4f6f9;
+    --bs-btn-active-border-color: #f4f6f9;
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+.group-form {
+    display: flex;
+    justify-content: center;
+}

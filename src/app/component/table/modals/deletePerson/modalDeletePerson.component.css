@@ -1,0 +1,46 @@
+.centered {
+    text-align: center; 
+}
+
+.margined-div {
+    margin: 10px;
+    padding: 5px;
+}
+
+.margined-min {
+    margin: 10px;
+    padding: 5px;
+}
+
+h2 {
+    font-weight: bold;
+    color: #ef5350;
+}
+
+.btn-primary {
+    --bs-btn-bg: #00a570;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #1290cb;
+    --bs-btn-hover-bg: #ffffff;
+    --bs-btn-hover-border-color: #ffffff;
+    --bs-btn-active-color: #ef5350;
+    --bs-btn-active-bg: #f4f6f9;
+    --bs-btn-active-border-color: #f4f6f9;
+}
+
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #ef5350;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #1290cb;
+    --bs-btn-hover-bg: #ffffff;
+    --bs-btn-hover-border-color: #ffffff;
+    --bs-btn-active-color: #ef5350;
+    --bs-btn-active-bg: #f4f6f9;
+    --bs-btn-active-border-color: #f4f6f9;
+}
+
+.group-form {
+    display: flex;
+    justify-content: center;
+}
