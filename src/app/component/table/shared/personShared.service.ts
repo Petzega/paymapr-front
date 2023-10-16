@@ -1,16 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, finalize } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PersonShared {
-  // private apiUrl = 'http://localhost:8081/owner/person';
-  private apiUrl = 'https://ms-person.fly.dev/owner/person';
+  private apiUrl = 'http://localhost:8080/owner/person';
+  // private apiUrl = 'https://ms-person.fly.dev/owner/person';
   private personEditedSource = new Subject<void>();
   personEdited$ = this.personEditedSource.asObservable();
   // private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+  public isWaiting: boolean = false;
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,7 +24,13 @@ export class PersonShared {
   perId: string = '';
 
   getAllItems(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/all`, this.httpOptions);
+    this.isWaiting = true;
+    return this.http.get<any[]>(`${this.apiUrl}/all`, this.httpOptions)
+    .pipe(
+      finalize(() => {
+        this.isWaiting = false;
+      })
+    );
   }
 
   getItemById(perId: string): Observable<any> {

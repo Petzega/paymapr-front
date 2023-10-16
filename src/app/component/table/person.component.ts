@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, CommonModule } from '@angular/common';
 import { PersonShared } from './shared/personShared.service';
 import { FormsModule } from '@angular/forms';
 import { EditPersonComponent } from './modals/editPerson/modalEditPerson.component';
@@ -10,12 +10,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule],
+  imports: [NgFor, NgIf, FormsModule, CommonModule],
   templateUrl: 'person.component.html',
   styleUrls: ['person.component.css'],
 })
 export class PersonComponent implements OnInit {
   items: any[] = [];
+  isSpinnerVisible: boolean = false;
 
   constructor(
     private personShared: PersonShared,
@@ -31,8 +32,12 @@ export class PersonComponent implements OnInit {
 
   getAllPersons() {
     console.log('reloaded');
+    this.isSpinnerVisible = true;
+    console.log("ANTES", this.isSpinnerVisible);
     this.personShared.getAllItems().subscribe((data) => {
       this.items = data;
+      this.isSpinnerVisible = false;
+      console.log("DESPUES", this.isSpinnerVisible);
     });
   }
 
