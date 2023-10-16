@@ -6,8 +6,8 @@ import { Observable, Subject, finalize } from 'rxjs';
   providedIn: 'root',
 })
 export class PersonShared {
-  private apiUrl = 'http://localhost:8080/owner/person';
-  // private apiUrl = 'https://ms-person.fly.dev/owner/person';
+  // private apiUrl = 'http://localhost:8080/owner/person';
+  private apiUrl = 'https://ms-person.fly.dev/owner/person';
   private personEditedSource = new Subject<void>();
   personEdited$ = this.personEditedSource.asObservable();
   // private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -29,6 +29,7 @@ export class PersonShared {
     .pipe(
       finalize(() => {
         this.isWaiting = false;
+      })
       })
     );
   }
