@@ -33,11 +33,9 @@ export class PersonComponent implements OnInit {
   getAllPersons() {
     console.log('reloaded');
     this.isSpinnerVisible = true;
-    console.log("ANTES", this.isSpinnerVisible);
     this.personShared.getAllItems().subscribe((data) => {
       this.items = data;
       this.isSpinnerVisible = false;
-      console.log("DESPUES", this.isSpinnerVisible);
     });
   }
 
