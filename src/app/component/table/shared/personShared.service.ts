@@ -30,7 +30,6 @@ export class PersonShared {
       finalize(() => {
         this.isWaiting = false;
       })
-      })
     );
   }
 
