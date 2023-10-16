@@ -7,7 +7,10 @@
                 <div class="centered-element">
                     <button type="button" class="btn btn-primary green" (click)="showAddPersonModal()"><i class="bi bi-person-plus-fill"></i> Agregar Persona</button>
                 </div>
-                <div class="table-responsive" [ngClass]="{ 'with-height': isSpinnerVisible }">
+                <div class="table-responsive">
+                    <div class="loader-container" *ngIf="isSpinnerVisible">
+                        <div class="loader"></div>
+                      </div>
                     <table class="table align-middle text-nowrap">
                         <thead>
                             <tr>
@@ -43,9 +46,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="loader-container" *ngIf="isSpinnerVisible">
-                        <div class="loader"></div>
-                    </div>
                 </div>
             </div>
         </div>
