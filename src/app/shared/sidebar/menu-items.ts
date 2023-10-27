@@ -72,7 +72,7 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: [],
-  }/* ,
+  },
   {
     path: '/component/pagos',
     title: 'Pagos',
@@ -80,7 +80,7 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: [],
-  },
+  }/*,
   {
     path: '/about',
     title: 'About',
