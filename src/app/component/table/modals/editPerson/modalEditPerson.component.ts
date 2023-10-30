@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PersonShared } from '../../shared/personShared.service';
+import { PersonShared } from '../../../shared/personShared.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({

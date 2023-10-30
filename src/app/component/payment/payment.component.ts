@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AddPersonComponent } from '../table/modals/addPerson/modalAddPerson.component';
-import { PaymentShared } from '../table/shared/paymentShared.service';
+import { AddPaymentComponent } from '../payment/modals/addPayment/modalAddPayment.component';
+import { PaymentShared } from '../shared/paymentShared.service';
+import { PersonShared } from '../shared/personShared.service';
 
 @Component({
   selector: 'app-payment',
@@ -18,7 +19,8 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private paymentShared: PaymentShared,
-    private editPaymentModal: NgbModal
+    private editPaymentModal: NgbModal,
+    private personShared: PersonShared
   ) {}
 
   ngOnInit(): void {
@@ -37,9 +39,9 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  showAddPersonModal() {
+  showAddPaymentModal() {
     console.log('clicked!');
-    const modalRef = this.editPaymentModal.open(AddPersonComponent, {
+    const modalRef = this.editPaymentModal.open(AddPaymentComponent, {
       centered: true,
     });
   }

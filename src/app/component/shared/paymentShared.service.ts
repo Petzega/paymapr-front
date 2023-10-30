@@ -18,6 +18,9 @@ export class PaymentShared {
 
   constructor(private http: HttpClient) {}
 
+  payment: any[] = [];
+  pagoId: string = '';
+
   getAllPayments(): Observable<any[]> {
     this.isWaiting = true;
     return this.http.get<any[]>(`${this.apiUrl}/all/pagoId`, this.httpOptions)
@@ -26,5 +29,13 @@ export class PaymentShared {
         this.isWaiting = false;
       })
     );
+  }
+
+  notifyTableEdited() {
+    this.paymentEditedSource.next();
+  }
+
+  savePayment(paymentData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/save/null`, JSON.stringify(paymentData), this.httpOptions);
   }
 }

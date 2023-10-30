@@ -5,9 +5,12 @@
                 <h4 class="card-title">Pagos</h4>
                 <h5 class="card-subtitle text-muted">Pagos y gastos realizados</h5>
                 <div class="centered-element">
-                    <button type="button" class="btn btn-primary green" (click)="showAddPersonModal()"><i class="bi bi-person-plus-fill"></i> Agregar Pago</button>
+                    <button type="button" class="btn btn-primary green" (click)="showAddPaymentModal()"><i class="bi bi-person-plus-fill"></i> Agregar Pago</button>
                 </div>
                 <div class="table-responsive">
+                    <div class="loader-container" *ngIf="isSpinnerVisible">
+                        <div class="loader"></div>
+                      </div>
                     <table class="table align-middle text-nowrap">
                         <thead>
                             <tr>

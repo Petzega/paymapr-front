@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor, NgIf, CommonModule } from '@angular/common';
-import { PersonShared } from './shared/personShared.service';
+import { PersonShared } from '../shared/personShared.service';
 import { FormsModule } from '@angular/forms';
 import { EditPersonComponent } from './modals/editPerson/modalEditPerson.component';
 import { AddPersonComponent } from './modals/addPerson/modalAddPerson.component';

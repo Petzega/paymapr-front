@@ -10,7 +10,6 @@ export class PersonShared {
   // private apiUrl = 'https://ms-person.fly.dev/owner/person';
   private personEditedSource = new Subject<void>();
   personEdited$ = this.personEditedSource.asObservable();
-  // private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   public isWaiting: boolean = false;
 
@@ -34,7 +33,7 @@ export class PersonShared {
   }
 
   getItemById(perId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/find/${perId}`, this.httpOptions);
+    return this.http.get<any>(`${this.apiUrl}/find/perId/${perId}`, this.httpOptions);
   }
   
   updatePersona(perId: string, personaData: any): Observable<any> {
@@ -51,6 +50,6 @@ export class PersonShared {
   }
 
   dropPersonById(perId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/delete/${perId}`, this.httpOptions);
+    return this.http.get<any>(`${this.apiUrl}/delete/perId/${perId}`, this.httpOptions);
   }
 }

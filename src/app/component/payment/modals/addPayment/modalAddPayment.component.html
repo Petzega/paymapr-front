@@ -1,0 +1,53 @@
+<div class="margined-div">
+    <form (submit)="addPayment()">
+        <!-- <form> -->
+        <h3>Agregar Pago</h3>
+        <div class="form-group">
+            <label for="perId">Payer:</label>
+            <select class="form-control" id="perId" name="perId" [(ngModel)]="selectedUser">
+                <option value="" disabled selected>Selecciona una Persona</option>
+                <option *ngFor="let user of users" [value]="user.perId">{{ user.perNombre }} {{ user.perApellido}}</option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="cpDetalle">Categoría:</label>
+            <select class="form-control" id="cpDetalle" name="cpDetalle" [(ngModel)]="selectedCategory" (change)="onCategorySelected()">
+                <option value="" disabled selected>Selecciona una Categoría</option>
+                <option *ngFor="let category of categories" [value]="category.cpId">{{ category.cpDetalle }}</option>
+              </select>
+        </div>
+            <div class="form-group">
+                <label for="spDetalle">Subcategoría:</label>
+                <select class="form-control" id="spDetalle" name="spDetalle" [(ngModel)]="selectedSubcategory">
+                    <option value="" disabled selected>Selecciona una Subcategoría</option>
+                    <option *ngFor="let subcategory of subcategories" [value]="subcategory.spId">{{ subcategory.spDetalle }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pagoDetalle">Detalle:</label>
+                <input type="email" class="form-control" id="pagoDetalle" name="pagoDetalle" placeholder="Ej. test@test.com" [(ngModel)]="valuePaymentDetail"/>
+            </div>
+            <div class="form-group">
+                <label for="tpDetalle">Tipo Pago:</label>
+                <select class="form-control" id="tpDetalle" name="tpDetalle" [(ngModel)]="selectedType" (change)="onTypeSelected()">
+                    <option value="" disabled selected>Selecciona un Tipo</option>
+                    <option *ngFor="let type of types" [value]="type.tpId">{{ type.tpDetalle }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mpDetalle">Medio Pago:</label>
+                <select class="form-control" id="mpDetalle" name="mpDetalle" [(ngModel)]="selectedMethod">
+                    <option value="" disabled selected>Selecciona un Medio</option>
+                    <option *ngFor="let method of methods" [value]="method.mpId">{{ method.mpDetalle }}</option>
+                </select>
+            </div>
+        <div class="form-group">
+            <label for="pagoMonto">Monto Pago:</label>
+            <input type="text" class="form-control" id="pagoMonto" name="pagoMonto" placeholder="Ej. 987654321" [(ngModel)]="valuePaymentMount"/>
+        </div>
+        <div class="group-form" role="group">
+            <button class="btn btn-primary" type="submit">Agregar</button>
+            <button class="btn btn-secondary" type="button" (click)="closeModal()">Cancelar</button>
+        </div>
+    </form>
+</div>
