@@ -17,6 +17,7 @@ import { MethodShared } from 'src/app/component/shared/methodShared.service';
   styleUrls: ['modalAddPayment.component.css'],
 })
 export class AddPaymentComponent implements OnInit {
+  
   users: any[] = [];
   types: any[] = [];
   methods: any[] = [];

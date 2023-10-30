@@ -31,6 +31,15 @@ export class PaymentShared {
     );
   }
 
+  getPaymentById(pagoId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/find/pagoId/${pagoId}`, this.httpOptions);
+  }
+
+  updatePayment(pagoId: string, paymentData: any): Observable<any> {
+    const url = `${this.apiUrl}/save/${pagoId}`;
+    return this.http.post(url, paymentData, this.httpOptions);
+  }
+
   notifyTableEdited() {
     this.paymentEditedSource.next();
   }

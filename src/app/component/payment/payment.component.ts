@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddPaymentComponent } from '../payment/modals/addPayment/modalAddPayment.component';
 import { PaymentShared } from '../shared/paymentShared.service';
 import { PersonShared } from '../shared/personShared.service';
+import { EditPaymentComponent } from './modals/editPayment/modalEditPayment.component';
 
 @Component({
   selector: 'app-payment',
@@ -50,5 +51,21 @@ export class PaymentComponent implements OnInit {
     const modalRef = this.editPaymentModal.open(AddPaymentComponent, {
       centered: true,
     });
+  }
+
+  getPaymentId(pagoId: string): void {
+    if (pagoId) {
+      this.paymentShared.pagoId = pagoId;
+    }
+  }
+
+  showEditPaymentModal(pagoId: string) {
+    console.log('clicked!');
+    const modalRef = this.editPaymentModal.open(EditPaymentComponent, {
+      centered: true,
+    });
+
+    modalRef.componentInstance.editedItem = pagoId;
+    this.getPaymentId(pagoId);
   }
 }
