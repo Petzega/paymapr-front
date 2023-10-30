@@ -32,8 +32,8 @@
                                         <img src="assets/images/users/user4.jpg" alt="user" width="45"
                                             class="rounded-circle">
                                         <div class="ms-3">
-                                            <h5 class="mb-0 font-medium">{{item.perId}} {{item.perApellido}}</h5>
-                                            <span class="text-muted">{{item.pagoId}}</span>
+                                            <h5 class="mb-0 font-medium">{{item.perNombre}} {{item.perApellido}}</h5>
+                                            <span class="text-muted">Número Pago: {{item.pagoNumero}}</span>
                                         </div>
                                     </div>
                                 </td>
@@ -45,13 +45,12 @@
                                 <td class="fs-4">{{item.pagoMonto}}</td>
                                 <td class="fs-4">{{item.pagoSwitch}}</td>
 
-                                <!-- <td class="fs-4">
+                                <td class="fs-4">
                                     <div role="group">
-                                        <button type="button" class="btn btn-primary"
-                                            (click)="showEditPersonModal(item.perId)"><i class="bi bi-person-lines-fill"></i> Editar</button>
-                                        <button type="button" class="btn btn-secondary" (click)="showDeletePersonModal(item.perId)"><i class="bi bi-person-dash-fill"></i> Eliminar</button>                                        
+                                        <button type="button" class="btn btn-primary"><i class="bi bi-person-lines-fill"></i> Editar</button>
+                                        <button type="button" class="btn btn-secondary"><i class="bi bi-person-dash-fill"></i> Eliminar</button>                                        
                                     </div>
-                                </td> -->
+                                </td>
                             </tr>
                         </tbody>
                     </table>

@@ -29,11 +29,17 @@ export class PaymentComponent implements OnInit {
       this.getAllPayments();
     });
   }
-
+  
   getAllPayments() {
     console.log('reloaded');
     this.isSpinnerVisible = true;
     this.paymentShared.getAllPayments().subscribe((data) => {
+      for (const payment of data) {
+        this.personShared.getItemById(payment.perId).subscribe((person) => {
+          payment.perNombre = person.perNombre;
+          payment.perApellido = person.perApellido;
+        });
+      }
       this.items = data;
       this.isSpinnerVisible = false;
     });
