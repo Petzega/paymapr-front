@@ -76,7 +76,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: '/component/pagos',
     title: 'Pagos',
-    icon: 'bi bi-cash-coin',
+    icon: 'bi bi bi-currency-exchange',
     class: '',
     extralink: false,
     submenu: [],
