@@ -28,4 +28,14 @@ export class CategoryShared {
       })
     );
   }
+
+  getIdByDetail(cpDetalle: string): Observable<any[]> {
+    this.isWaiting = true;
+    return this.http.get<any[]>(`${this.apiUrl}/id-by-detail/${cpDetalle}`, this.httpOptions)
+    .pipe(
+      finalize(() => {
+        this.isWaiting = false;
+      })
+    );
+  }
 }

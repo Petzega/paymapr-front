@@ -40,4 +40,18 @@ export class SubcategoryShared {
       })
     );
   }
+
+  getSubcatById(spId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/find/spId/${spId}`, this.httpOptions);
+  }
+
+  getIdByDetail(spDetalle: string): Observable<any[]> {
+    this.isWaiting = true;
+    return this.http.get<any[]>(`${this.apiUrl}/id-by-detail/${spDetalle}`, this.httpOptions)
+    .pipe(
+      finalize(() => {
+        this.isWaiting = false;
+      })
+    );
+  }
 }

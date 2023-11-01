@@ -9,6 +9,10 @@
   --bs-btn-active-border-color: #f4f6f9;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .btn-secondary {
   --bs-btn-color: #fff;
   --bs-btn-bg: #ef5350;

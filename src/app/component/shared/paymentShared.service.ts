@@ -20,6 +20,7 @@ export class PaymentShared {
 
   payment: any[] = [];
   pagoId: string = '';
+  cpDetalle: string = '';
 
   getAllPayments(): Observable<any[]> {
     this.isWaiting = true;

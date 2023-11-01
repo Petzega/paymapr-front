@@ -1,62 +1,93 @@
 <div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Pagos</h4>
-                <h5 class="card-subtitle text-muted">Pagos y gastos realizados</h5>
-                <div class="centered-element">
-                    <button type="button" class="btn btn-primary green" (click)="showAddPaymentModal()"><i class="bi bi-cash-coin"></i> Agregar Pago</button>
-                </div>
-                <div class="table-responsive">
-                    <div class="loader-container" *ngIf="isSpinnerVisible">
-                        <div class="loader"></div>
-                      </div>
-                    <table class="table align-middle text-nowrap">
-                        <thead>
-                            <tr>
-                                <th class="text-dark font-medium fs-4">Payer</th>
-                                <th class="text-dark font-medium fs-4">Categoría</th>
-                                <th class="text-dark font-medium fs-4">Subcategoría</th>
-                                <th class="text-dark font-medium fs-4">Detalle</th>
-                                <th class="text-dark font-medium fs-4">Tipo Pago</th>
-                                <th class="text-dark font-medium fs-4">Medio Pago</th>
-                                <th class="text-dark font-medium fs-4">Monto</th>
-                                <th class="text-dark font-medium fs-4">Divisible</th>
-                                <th class="text-dark font-medium fs-4">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor='let item of items'>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <img src="assets/images/users/user4.jpg" alt="user" width="45"
-                                            class="rounded-circle">
-                                        <div class="ms-3">
-                                            <h5 class="mb-0 font-medium">{{item.perNombre}} {{item.perApellido}}</h5>
-                                            <span class="text-muted">Número Pago: {{item.pagoNumero}}</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="fs-4">{{item.cpDetalle}}</td>
-                                <td class="fs-4">{{item.spDetalle}}</td>
-                                <td class="fs-4">{{item.pagoDetalle}}</td>
-                                <td class="fs-4">{{item.tpDetalle}}</td>
-                                <td class="fs-4">{{item.mpDetalle}}</td>
-                                <td class="fs-4">{{item.pagoMonto}}</td>
-                                <td class="fs-4">{{item.pagoSwitch}}</td>
-
-                                <td class="fs-4">
-                                    <div role="group">
-                                        <button type="button" class="btn btn-primary" (click)="showEditPaymentModal(item.pagoId)"><i class="bi bi-cash"></i> Editar</button>
-                                        <button type="button" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Eliminar</button>                                        
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Pagos</h4>
+        <h5 class="card-subtitle text-muted">Pagos y gastos realizados</h5>
+        <div class="centered-element">
+          <button
+            type="button"
+            class="btn btn-primary green"
+            (click)="showAddPaymentModal()"
+          >
+            <i class="bi bi-cash-coin"></i> Agregar Pago
+          </button>
         </div>
+        <div class="table-responsive">
+          <div class="loader-container" *ngIf="isSpinnerVisible">
+            <div class="loader"></div>
+          </div>
+          <table class="table align-middle text-nowrap">
+            <thead>
+              <tr>
+                <th class="text-dark font-medium fs-4 bold">Payer</th>
+                <th class="text-dark font-medium fs-4 bold">Categoría</th>
+                <!-- <th class="text-dark font-medium fs-4">Subcategoría</th> -->
+                <th class="text-dark font-medium fs-4 bold">Detalle</th>
+                <th class="text-dark font-medium fs-4 bold">Tipo Pago</th>
+                <!-- <th class="text-dark font-medium fs-4">Medio Pago</th> -->
+                <th class="text-dark font-medium fs-4 bold">Monto</th>
+                <th class="text-dark font-medium fs-4 bold">Divisible</th>
+                <th class="text-dark font-medium fs-4 bold">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="assets/images/users/user4.jpg"
+                      alt="user"
+                      width="45"
+                      class="rounded-circle"
+                    />
+                    <div class="ms-3">
+                      <h5 class="mb-0 font-medium">
+                        {{ item.perNombre }} {{ item.perApellido }}
+                      </h5>
+                      <span class="text-muted"
+                        >Número Pago: {{ item.pagoNumero }}</span
+                      >
+                    </div>
+                  </div>
+                </td>
+                <td class="fs-4">
+                  <div>
+                    <h5 class="mb-0 font-medium">{{ item.cpDetalle }}</h5>
+                    <span class="text-muted">{{ item.spDetalle }}</span>
+                  </div>
+                </td>
+                <!-- <td class="fs-4">{{item.spDetalle}}</td> -->
+                <td class="fs-4">{{ item.pagoDetalle }}</td>
+                <td class="fs-4">
+                  <div>
+                    <h5 class="mb-0 font-medium">{{ item.tpDetalle }}</h5>
+                    <span class="text-muted">{{ item.mpDetalle }}</span>
+                  </div>
+                </td>
+                <!-- <td class="fs-4">{{item.mpDetalle}}</td> -->
+                <td class="fs-4">{{ item.pagoMonto }}</td>
+                <td class="fs-4">{{ item.pagoSwitch }}</td>
 
+                <td class="fs-4">
+                  <div role="group">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="showEditPaymentModal(item.pagoId)"
+                    >
+                      <i class="bi bi-cash"></i> Editar
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                      <i class="bi bi-x-circle"></i> Eliminar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
