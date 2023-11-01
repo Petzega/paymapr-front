@@ -6,6 +6,8 @@ import { PersonShared } from 'src/app/component/shared/personShared.service';
 import { NgFor, NgIf, CommonModule } from '@angular/common';
 import { CategoryShared } from 'src/app/component/shared/categoryShared.service';
 import { SubcategoryShared } from 'src/app/component/shared/subcategoryShared.service';
+import { MethodShared } from 'src/app/component/shared/methodShared.service';
+import { TypeShared } from 'src/app/component/shared/typeShared.service';
 
 @Component({
   selector: 'app-edit-payment',
@@ -19,21 +21,29 @@ export class EditPaymentComponent implements OnInit {
   users: any[] = [];
   categories: any[] = [];
   subcategories: any[] = [];
+  types: any[] = [];
+  methods: any[] = [];
 
   personData: any[] = [];
   paymentData: any = {};
   subcategoryData: any = {};
   catId: any = {};
-  // subId: any[] = [];
+  medId: any = {};
+  typeId: any = {};
+  methId: any = {};
 
   selectedCategory: string = '';
   selectedSubcategory: string = '';
+  valuePaymentDetail: string = '';
+  valuePaymentMount: string = '';
 
   constructor(
     private paymentShared: PaymentShared,
     private personShared: PersonShared,
     private categoryShared: CategoryShared,
     private subcategoryShared: SubcategoryShared,
+    private typeShared: TypeShared,
+    private methodShared: MethodShared,
     private editPersonModal: NgbModal
   ) {}
 
@@ -42,7 +52,9 @@ export class EditPaymentComponent implements OnInit {
     try {
       this.paymentData = await this.paymentShared.getPaymentById(this.paymentShared.pagoId).toPromise();
       this.catId = await this.categoryShared.getIdByDetail(this.paymentData.cpDetalle).toPromise();
+      this.typeId = await this.typeShared.getIdByDetail(this.paymentData.tpDetalle).toPromise();
       this.getSubcatByCat(this.catId[0].cpId);
+      this.getMethodByType(this.typeId[0].tpId);
 
     } catch (error) {
       console.error('Error al obtener datos:', error);
@@ -50,6 +62,7 @@ export class EditPaymentComponent implements OnInit {
 
     this.getAllPerson();
     this.getAllCategories();
+    this.getAllTypes();
   } 
 
   getAllPerson() {
@@ -84,7 +97,23 @@ export class EditPaymentComponent implements OnInit {
 
   async onCategorySelected() {
     this.catId = await this.categoryShared.getIdByDetail(this.paymentData.cpDetalle).toPromise();
-    console.log(this.catId);
     this.getSubcatByCat(this.catId[0].cpId);
+  }
+
+  getMethodByType(tpId: string) {
+    this.methodShared.getAllMethodsByTypes(tpId).subscribe((data) => {
+      this.methods = data;
+    });
+  }
+
+  async onTypeSelected() {
+    this.typeId = await this.typeShared.getIdByDetail(this.paymentData.tpDetalle).toPromise();
+    this.getMethodByType(this.typeId[0].tpId);
+  }
+
+  getAllTypes() {
+    this.typeShared.getAllTypes().subscribe((data) => {
+      this.types = data;
+    });
   }
 }

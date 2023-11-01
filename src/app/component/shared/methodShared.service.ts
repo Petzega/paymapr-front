@@ -19,6 +19,8 @@ export class MethodShared {
 
   constructor(private http: HttpClient) {}
 
+  mpId: string = '';
+
   getAllSubcategories(): Observable<any[]> {
     this.isWaiting = true;
     return this.http.get<any[]>(`${this.apiUrl}/all/mpId`, this.httpOptions)
@@ -32,6 +34,20 @@ export class MethodShared {
   getAllMethodsByTypes(tpId: string): Observable<any[]> {
     this.isWaiting = true;
     return this.http.get<any[]>(`${this.apiUrl}/by-type/${tpId}`, this.httpOptions)
+    .pipe(
+      finalize(() => {
+        this.isWaiting = false;
+      })
+    );
+  }
+
+  getSubcatById(mpId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/find/mpId/${mpId}`, this.httpOptions);
+  }
+
+  getIdByDetail(mpDetalle: string): Observable<any[]> {
+    this.isWaiting = true;
+    return this.http.get<any[]>(`${this.apiUrl}/id-by-detail/${mpDetalle}`, this.httpOptions)
     .pipe(
       finalize(() => {
         this.isWaiting = false;
