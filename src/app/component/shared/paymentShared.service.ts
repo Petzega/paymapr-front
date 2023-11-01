@@ -48,4 +48,8 @@ export class PaymentShared {
   savePayment(paymentData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/save/null`, JSON.stringify(paymentData), this.httpOptions);
   }
+
+  dropPaymentById(pagoId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/delete/pagoId/${pagoId}`, this.httpOptions);
+  }
 }

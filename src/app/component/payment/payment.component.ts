@@ -6,6 +6,7 @@ import { AddPaymentComponent } from '../payment/modals/addPayment/modalAddPaymen
 import { PaymentShared } from '../shared/paymentShared.service';
 import { PersonShared } from '../shared/personShared.service';
 import { EditPaymentComponent } from './modals/editPayment/modalEditPayment.component';
+import { DeletePaymentComponent } from './modals/deletePayment/modalDeletePayment.component';
 
 @Component({
   selector: 'app-payment',
@@ -62,6 +63,16 @@ export class PaymentComponent implements OnInit {
   showEditPaymentModal(pagoId: string) {
     console.log('clicked!');
     const modalRef = this.editPaymentModal.open(EditPaymentComponent, {
+      centered: true,
+    });
+
+    modalRef.componentInstance.editedItem = pagoId;
+    this.getPaymentId(pagoId);
+  }
+
+  showDeletePaymentModal(pagoId: string) {
+    console.log('delete started!');
+    const modalRef = this.editPaymentModal.open(DeletePaymentComponent, {
       centered: true,
     });
 
