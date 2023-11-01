@@ -6,7 +6,8 @@ import { Observable, Subject, finalize } from 'rxjs';
   providedIn: 'root',
 })
 export class PaymentShared {
-  private apiUrl = 'http://localhost:8080/owner/payment';
+  // private apiUrl = 'http://localhost:8080/owner/payment';
+  private apiUrl = 'https://ms-person.fly.dev/owner/payment';
   private paymentEditedSource = new Subject<void>();
   paymentEdited$ = this.paymentEditedSource.asObservable();
 

@@ -6,8 +6,8 @@ import { Observable, Subject, finalize } from 'rxjs';
   providedIn: 'root',
 })
 export class SubcategoryShared {
-  private apiUrl = 'http://localhost:8080/owner/payment-subcategory';
-  // private apiUrl = 'https://ms-person.fly.dev/owner/person';
+  // private apiUrl = 'http://localhost:8080/owner/payment-subcategory';
+  private apiUrl = 'https://ms-person.fly.dev/owner/payment-subcategory';
   private personEditedSource = new Subject<void>();
   personEdited$ = this.personEditedSource.asObservable();
 
