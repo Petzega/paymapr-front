@@ -7,7 +7,7 @@ import { Observable, Subject, finalize } from 'rxjs';
 })
 export class TypeShared {
   // private apiUrl = 'http://localhost:8080/owner/payment-type';
-  private apiUrl = 'https://ms-person.fly.dev/owner/payment-type';
+  private apiUrl = 'https://srv-paymapr.fly.dev/owner/payment-type';
   private personEditedSource = new Subject<void>();
   personEdited$ = this.personEditedSource.asObservable();
 
