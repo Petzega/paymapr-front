@@ -1,13 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, finalize } from 'rxjs';
+import { environment } from 'src/env/env.cert';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryShared {
-  // private apiUrl = 'http://localhost:8080/owner/payment-category';
-  private apiUrl = 'https://srv-paymapr.fly.dev/owner/payment-category';
+  private apiUrl = environment.apiUrl + environment.path.category;
   private personEditedSource = new Subject<void>();
   personEdited$ = this.personEditedSource.asObservable();
 
