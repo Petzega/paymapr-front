@@ -59,6 +59,12 @@ export class PaymentComponent implements OnInit {
       this.paymentShared.pagoId = pagoId;
     }
   }
+  
+  getPayment(data: any): void {
+    if (data) {
+      this.paymentShared.payment = data;
+    }
+  }
 
   showEditPaymentModal(pagoId: string) {
     console.log('clicked!');
@@ -70,13 +76,12 @@ export class PaymentComponent implements OnInit {
     this.getPaymentId(pagoId);
   }
 
-  showDeletePaymentModal(pagoId: string) {
+  showDeletePaymentModal(data: any) {
     console.log('delete started!');
     const modalRef = this.editPaymentModal.open(DeletePaymentComponent, {
       centered: true,
     });
-
-    modalRef.componentInstance.editedItem = pagoId;
-    this.getPaymentId(pagoId);
+    modalRef.componentInstance.editedItem = data;
+    this.getPayment(data);
   }
 }

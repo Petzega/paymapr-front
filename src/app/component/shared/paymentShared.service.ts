@@ -20,13 +20,13 @@ export class PaymentShared {
 
   constructor(private http: HttpClient) {}
 
-  payment: any[] = [];
+  payment: any = {};
   pagoId: string = '';
   cpDetalle: string = '';
 
   getAllPayments(): Observable<any[]> {
     this.isWaiting = true;
-    return this.http.get<any[]>(`${this.apiUrl}/all/pagoId`, this.httpOptions)
+    return this.http.get<any[]>(`${this.apiUrl}/all/pagoId/true`, this.httpOptions)
     .pipe(
       finalize(() => {
         this.isWaiting = false;
@@ -48,10 +48,10 @@ export class PaymentShared {
   }
 
   savePayment(paymentData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/save/null`, JSON.stringify(paymentData), this.httpOptions);
+    return this.http.post(`${this.apiUrl}/save/null/true`, JSON.stringify(paymentData), this.httpOptions);
   }
 
-  dropPaymentById(pagoId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/delete/pagoId/${pagoId}`, this.httpOptions);
+  dropPaymentById(pagoId: string, payment: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/save/${pagoId}/false`, JSON.stringify(payment), this.httpOptions);
   }
 }

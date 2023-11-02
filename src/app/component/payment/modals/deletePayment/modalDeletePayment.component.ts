@@ -25,7 +25,7 @@ export class DeletePaymentComponent implements OnInit {
   }
 
   deletePayment() {
-    this.paymentShared.dropPaymentById(this.paymentShared.pagoId).subscribe(() => {
+    this.paymentShared.dropPaymentById(this.paymentShared.payment.pagoId, this.paymentShared.payment).subscribe(() => {
       this.paymentShared.notifyTableEdited();
     });
     this.closeModal();

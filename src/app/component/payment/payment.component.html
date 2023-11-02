@@ -22,11 +22,9 @@
               <tr>
                 <th class="text-dark font-medium fs-4 bold">Payer</th>
                 <th class="text-dark font-medium fs-4 bold">Categoría</th>
-                <!-- <th class="text-dark font-medium fs-4">Subcategoría</th> -->
-                <th class="text-dark font-medium fs-4 bold">Detalle</th>
                 <th class="text-dark font-medium fs-4 bold">Tipo Pago</th>
-                <!-- <th class="text-dark font-medium fs-4">Medio Pago</th> -->
                 <th class="text-dark font-medium fs-4 bold">Monto</th>
+                <th class="text-dark font-medium fs-4 bold">Detalle</th>
                 <th class="text-dark font-medium fs-4 bold">Divisible</th>
                 <th class="text-dark font-medium fs-4 bold">Acciones</th>
               </tr>
@@ -57,18 +55,15 @@
                     <span class="text-muted">{{ item.spDetalle }}</span>
                   </div>
                 </td>
-                <!-- <td class="fs-4">{{item.spDetalle}}</td> -->
-                <td class="fs-4">{{ item.pagoDetalle }}</td>
                 <td class="fs-4">
                   <div>
                     <h5 class="mb-0 font-medium">{{ item.tpDetalle }}</h5>
                     <span class="text-muted">{{ item.mpDetalle }}</span>
                   </div>
                 </td>
-                <!-- <td class="fs-4">{{item.mpDetalle}}</td> -->
                 <td class="fs-4">{{ item.pagoMonto }}</td>
+                <td class="fs-4">{{ item.pagoDetalle }}</td>
                 <td class="fs-4">{{ item.pagoSwitch }}</td>
-
                 <td class="fs-4">
                   <div role="group">
                     <button
@@ -78,7 +73,7 @@
                     >
                       <i class="bi bi-cash"></i> Editar
                     </button>
-                    <button type="button" class="btn btn-secondary" (click)="showDeletePaymentModal(item.pagoId)">
+                    <button type="button" class="btn btn-secondary" (click)="showDeletePaymentModal(item)">
                       <i class="bi bi-x-circle"></i> Eliminar
                     </button>
                   </div>
