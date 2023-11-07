@@ -87,12 +87,13 @@ export class EditPaymentComponent implements OnInit {
     this.editPersonModal.dismissAll();
   }
 
-  editPayment() {
+  async editPayment() {
     this.paymentShared
-      .updatePayment(this.paymentShared.pagoId, this.paymentData).subscribe(() => {
-        this.paymentShared.notifyTableEdited();
+      .updatePayment(this.paymentShared.pagoId, this.paymentData).subscribe(async () => {
+        await this.paymentShared.notifyTableEdited();
       });
       this.closeModal();
+      // this.paymentShared.notifyTableEdited();
   }
 
   async onCategorySelected() {

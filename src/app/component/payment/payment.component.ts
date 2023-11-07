@@ -17,6 +17,7 @@ import { DeletePaymentComponent } from './modals/deletePayment/modalDeletePaymen
 })
 export class PaymentComponent implements OnInit {
   items: any[] = [];
+  person: any = {};
   isSpinnerVisible: boolean = false;
 
   constructor(
@@ -32,16 +33,15 @@ export class PaymentComponent implements OnInit {
     });
   }
   
-  getAllPayments() {
+  async getAllPayments() {
     console.log('reloaded');
     this.isSpinnerVisible = true;
-    this.paymentShared.getAllPayments().subscribe((data) => {
+    this.paymentShared.getAllPayments().subscribe(async (data) => {
       for (const payment of data) {
-        this.personShared.getItemById(payment.perId).subscribe((person) => {
-          payment.perNombre = person.perNombre;
-          payment.perApellido = person.perApellido;
-        });
-      }
+        this.person = await this.personShared.getItemById(payment.perId).toPromise();
+        payment.perNombre = this.person.perNombre;
+        payment.perApellido = this.person.perApellido;
+      };
       this.items = data;
       this.isSpinnerVisible = false;
     });

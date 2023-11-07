@@ -39,8 +39,11 @@ export class PaymentShared {
   }
 
   updatePayment(pagoId: string, paymentData: any): Observable<any> {
-    const url = `${this.apiUrl}/save/${pagoId}`;
-    return this.http.post(url, paymentData, this.httpOptions);
+    this.isWaiting = true;
+    const url = `${this.apiUrl}/save/${pagoId}/true`;
+    return this.http.post(url, paymentData, this.httpOptions).pipe(finalize(() => {
+      this.isWaiting = false;
+    }));
   }
 
   notifyTableEdited() {

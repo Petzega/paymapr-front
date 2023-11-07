@@ -38,6 +38,7 @@ export class AddPaymentComponent implements OnInit {
   selectedSubcategory: string = '';
   selectedType: string = '';
   selectedMethod: string = '';
+  selectedDivisible: boolean = false;
   valuePaymentDetail: string = '';
   valuePaymentMount: string = '';
 
@@ -94,6 +95,10 @@ export class AddPaymentComponent implements OnInit {
     }
     if (this.valuePaymentMount) {
       this.paymentData.pagoMonto = this.valuePaymentMount;
+    }
+    
+    if (this.selectedDivisible) {
+      this.paymentData.pagoDivisible = this.selectedDivisible;
     }
   
     this.paymentShared.savePayment(this.paymentData).subscribe(() => {
