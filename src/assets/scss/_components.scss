@@ -67,3 +67,17 @@
 .table th {
   font-weight: 500;
 }
+
+.modal {
+  --bs-modal-width: 525px;
+}
+
+.spc-right {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.spc-left {
+  flex: 1;
+  margin-left: 5px;
+}
