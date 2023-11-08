@@ -12,6 +12,7 @@
     --bs-btn-active-color: #ef5350;
     --bs-btn-active-bg: #f4f6f9;
     --bs-btn-active-border-color: #f4f6f9;
+    --bs-btn-font-size: 10px;
 }
 
 .btn-secondary {
@@ -24,6 +25,7 @@
     --bs-btn-active-color: #ef5350;
     --bs-btn-active-bg: #f4f6f9;
     --bs-btn-active-border-color: #f4f6f9;
+    --bs-btn-font-size: 10px;
 }
 
 .form-control {

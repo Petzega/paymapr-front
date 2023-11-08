@@ -1,74 +1,60 @@
 <div class="margined-div">
-    <form (ngSubmit)="editPayment()">
-        <h3>Editar Persona</h3>
-        <div class="form-group">
+    <form (ngSubmit)="editPayment()" class="format">
+        <h3 class="fs-4">Editar Persona</h3>
+        <div class="form-group fs-2">
             <label for="perId">Payer:</label>
-            <select class="form-control form-control-sm" id="perId" name="perId" [(ngModel)]="paymentData.perId">
+            <select class="form-control form-control-sm fs-2" id="perId" name="perId" [(ngModel)]="paymentData.perId">
                 <option value="" disabled selected>Seleccione una Persona</option>
                 <option *ngFor="let user of users" [value]="user.perId">{{ user.perNombre }} {{ user.perApellido}}</option>
               </select>
         </div>
         <div class="form-group d-flex">
-            <div class="form-group mr-3 w-100 spc-right">
+            <div class="form-group mr-3 w-100 spc-right fs-2">
                 <label for="cpDetalle">Categoría:</label>
-                <select class="form-control form-control-sm" id="cpDetalle" name="cpDetalle" [(ngModel)]="paymentData.cpDetalle"  (change)="onCategorySelected()">
+                <select class="form-control form-control-sm fs-2" id="cpDetalle" name="cpDetalle" [(ngModel)]="paymentData.cpDetalle"  (change)="onCategorySelected()">
                     <option value="" disabled selected>Seleccione una Categoría</option>
                     <option *ngFor="let category of categories" [value]="category.cpDetalle">{{ category.cpDetalle }}</option>
                   </select>
             </div>
-            <div class="form-group ml-3 w-100 spc-left">
+            <div class="form-group ml-3 w-100 spc-left fs-2">
                 <label for="spDetalle">Subcategoría:</label>
-                <select class="form-control form-control-sm" id="spDetalle" name="spDetalle" [(ngModel)]="paymentData.spDetalle">
+                <select class="form-control form-control-sm fs-2" id="spDetalle" name="spDetalle" [(ngModel)]="paymentData.spDetalle">
                     <option value="" disabled selected>Seleccione una Subcategoría</option>
                     <option *ngFor="let subcategory of subcategories" [value]="subcategory.spDetalle">{{ subcategory.spDetalle }}</option>
                   </select>
             </div>
         </div>
-        <!-- <div class="form-group">
-            <label for="cpDetalle">Categoría:</label>
-            <select class="form-control form-control-sm" id="cpDetalle" name="cpDetalle" [(ngModel)]="paymentData.cpDetalle"  (change)="onCategorySelected()">
-                <option value="" disabled selected>Seleccione una Categoría</option>
-                <option *ngFor="let category of categories" [value]="category.cpDetalle">{{ category.cpDetalle }}</option>
-              </select>
-        </div>
-        <div class="form-group">
-            <label for="spDetalle">Subcategoría:</label>
-            <select class="form-control form-control-sm" id="spDetalle" name="spDetalle" [(ngModel)]="paymentData.spDetalle">
-                <option value="" disabled selected>Seleccione una Subcategoría</option>
-                <option *ngFor="let subcategory of subcategories" [value]="subcategory.spDetalle">{{ subcategory.spDetalle }}</option>
-              </select>
-        </div> -->
         <div class="form-group d-flex">
-            <div class="form-group mr-3 w-100 spc-right">
+            <div class="form-group mr-3 w-100 spc-right fs-2">
                 <label for="tpDetalle">Tipo Pago:</label>
-                <select class="form-control form-control-sm" id="tpDetalle" name="tpDetalle" [(ngModel)]="paymentData.tpDetalle"  (change)="onTypeSelected()">
+                <select class="form-control form-control-sm fs-2" id="tpDetalle" name="tpDetalle" [(ngModel)]="paymentData.tpDetalle"  (change)="onTypeSelected()">
                     <option value="" disabled selected>Seleccione un Tipo Pago</option>
                     <option *ngFor="let type of types" [value]="type.tpDetalle">{{ type.tpDetalle }}</option>
                   </select>
             </div>
-            <div class="form-group ml-3 w-100 spc-left">
+            <div class="form-group ml-3 w-100 spc-left fs-2">
                 <label for="mpDetalle">Medio Pago:</label>
-                <select class="form-control form-control-sm" id="mpDetalle" name="mpDetalle" [(ngModel)]="paymentData.mpDetalle">
+                <select class="form-control form-control-sm fs-2" id="mpDetalle" name="mpDetalle" [(ngModel)]="paymentData.mpDetalle">
                     <option value="" disabled selected>Seleccione una Medio Pago</option>
                     <option *ngFor="let method of methods" [value]="method.mpDetalle">{{ method.mpDetalle }}</option>
                   </select>
             </div>
         </div>
         <div class="form-group d-flex align-items-center">
-            <div class="form-group mr-3 w-100 spc-right">
+            <div class="form-group mr-3 w-100 spc-right fs-2">
                 <label for="pagoMonto">Monto Pago:</label>
-                <input class="form-control form-control-sm" id="pagoMonto" name="pagoMonto" placeholder="Ej. Pago del mes" [(ngModel)]="paymentData.pagoMonto"/>
+                <input class="form-control form-control-sm fs-2" id="pagoMonto" name="pagoMonto" placeholder="Ej. Pago del mes" [(ngModel)]="paymentData.pagoMonto"/>
             </div>
-            <div class="form-group ml-3 w-100 spc-left">
+            <div class="form-group ml-3 w-100 spc-left fs-2">
                 <div class="form-check form-switch spc-left">
                     <input class="form-check-input" type="checkbox" role="switch" id="pagoDivisible" name="pagoDivisible" [(ngModel)]="paymentData.pagoDivisible">
                     <label class="form-check-label" for="pagoDivisible">Divisible entre todos</label>
                   </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group fs-2">
             <label for="pagoDetalle">Detalle:</label>
-            <input class="form-control form-control-sm" id="pagoDetalle" name="pagoDetalle" placeholder="Ej. Pago del mes" [(ngModel)]="paymentData.pagoDetalle"/>
+            <input class="form-control form-control-sm fs-2" id="pagoDetalle" name="pagoDetalle" placeholder="Ej. Pago del mes" [(ngModel)]="paymentData.pagoDetalle"/>
         </div>
         <div class="group-form" role="group">
             <button class="btn btn-primary" type="submit">Grabar</button>

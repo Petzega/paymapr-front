@@ -68,6 +68,10 @@
   font-weight: 500;
 }
 
+.tb-format {
+  font-size: 10px;
+}
+
 .modal {
   --bs-modal-width: 525px;
 }
@@ -80,4 +84,9 @@
 .spc-left {
   flex: 1;
   margin-left: 5px;
+}
+
+.btn-format {
+  width: 85px;
+  height: 30px;
 }
